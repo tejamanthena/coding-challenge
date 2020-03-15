@@ -1,0 +1,24 @@
+<div class="row calculator-row">
+  <form class="form-inline justify-content-center" (ngSubmit)="onSubmit()"
+    [formGroup]='installmentForm'>
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="amount">Amount:</label> &nbsp;
+      <div>
+        <input type="text" class="form-control" id="amount" formControlName="amount">
+          <div style="color: red;" *ngIf="installmentForm.controls.amount.errors && installmentForm.controls.amount.touched">
+            Please enter valid amount
+          </div>
+      </div>
+    </div>
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="Duration">Duration:</label> &nbsp;
+      <div>
+        <input type="text" class="form-control" id="duration" formControlName="duration">
+          <div style="color: red;" *ngIf="installmentForm.controls.duration.errors && installmentForm.controls.duration.touched">
+            Please enter valid duration
+          </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary mb-2" [disabled]="installmentForm.invalid">Submit</button>
+  </form>
+</div>
